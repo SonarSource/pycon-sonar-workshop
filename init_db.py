@@ -16,5 +16,8 @@ with open('pokemon.txt') as file:
         cur.execute(f'INSERT INTO POKEDEX (id, pokemon_name, image_url, description) VALUES ({pokemon_number}, "{name}", "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{pokemon_number}.png", "{description}")')
         pokemon_number += 1
 
+cur.execute('INSERT INTO SUBSCRIBERS (id, email) VALUES (1, "subscriber1@example.com")')
+cur.execute('INSERT INTO SUBSCRIBERS (id, email) VALUES (2, "subscriber2@example.com")')
+
 connection.commit()
 connection.close()

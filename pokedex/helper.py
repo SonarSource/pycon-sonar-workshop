@@ -13,6 +13,15 @@ class ConnectionWrapper:
         statement = "SELECT * FROM POKEDEX"
         return self.__conn.execute(statement).fetchall()
 
+    def register_subscriber(self, email):
+        try:
+            self.__conn.execute(f"INSERT into SUBSCRIBERS(email) values (?)", (email,))
+            self.__conn.commit()
+        except sqlite3.DatabaseError:
+            ...
+        except sqlite3.IntegrityError:
+            ...
+
     def cleanup(self, should_close: bool):
         if should_close:
             self.__conn.close()
@@ -20,3 +29,11 @@ class ConnectionWrapper:
 
 def fetch_all_pokemons(wrapper: ConnectionWrapper):
     return wrapper.get_all_pokemons()
+
+
+def register_subscriber(wrapper: ConnectionWrapper, email):
+    pattern = re.compile(r'(\w|[a-zA-Z0-9_])+@\w+\.(com||ch)')
+    if not pattern.match(email):
+        raise "Invalid email!"
+    wrapper.register_subscriber(email)
+    pass
