@@ -15,4 +15,12 @@
             </div>
         {% endfor %}
     </div>
+    <form action="{{ url_for('subscribe') }}" method="post">
+      <div class="col-6 col-md-4 col-lg-3 p-2">
+        <label for="input_email" class="form-label">Subscribe to our Pokemon newsletter</label>
+        <input type="email" class="form-control" id="input_email" name = "email" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 {% endblock %}

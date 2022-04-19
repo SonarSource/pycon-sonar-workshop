@@ -22,5 +22,8 @@ with open("pokemon.txt") as file:
         )
         pokemon_number += 1
 
+cur.execute('INSERT INTO SUBSCRIBERS (id, email) VALUES (1, "subscriber1@example.com")')
+cur.execute('INSERT INTO SUBSCRIBERS (id, email) VALUES (2, "subscriber2@example.com")')
+
 connection.commit()
 connection.close()

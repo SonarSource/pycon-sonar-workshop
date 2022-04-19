@@ -15,6 +15,13 @@ def index():
     return render_template("index.html", pokemon=pokemon)
 
 
+@app.route("/subscribe", methods=["POST"])
+def subscribe():
+    email = request.form["email"]
+    helper.register_subscriber(get_db(), email)
+    return redirect(url_for("index"))
+
+
 def get_db():
     if "db" not in g:
         g.db = helper.ConnectionWrapper(app.config["DATABASE"])
