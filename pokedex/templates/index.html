@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block styles %}
+    {{ super() }}
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+{% block content %}
+    <div class="text-center margin-mobile my-4 mx-auto">
+        <h1>Pokedex</h1>
+    </div>
+    <div class="container d-flex flex-row flex-wrap justify-content-start align-items-center text-center mt-3">
+        {% for i in range(pokemon | length) %}
+            <div class="col-6 col-md-4 col-lg-3 p-2">
+                <img alt="" src="{{ pokemon[i].image_url}}" />
+                <div>{{ pokemon[i].pokemon_name }} #{{ i + 1 }}</div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
