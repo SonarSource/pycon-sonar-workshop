@@ -8,7 +8,7 @@
         {% for i in range(pokemon | length) %}
             <div class="col-6 col-md-4 col-lg-3 p-2">
                 <img alt="" src="{{ pokemon[i].image_url}}" />
-                <div>{{ pokemon[i].pokemon_name }} #{{ i + 1 }}</div>
+                <div><a href="{{ url_for("get_pokemon", pokemon_id=pokemon[i].id) }}" class="pk-li p-3">{{ pokemon[i].pokemon_name }} #{{ i + 1 }}</a></div>
             </div>
         {% endfor %}
     </div>
