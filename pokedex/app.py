@@ -13,6 +13,24 @@ def index():
     return render_template('index.html', pokemon=pokemon)
 
 
+@app.route('/subscribe', methods=['POST'])
+def subscribe():
+    email = request.form['email']
+    helper.register_subscriber(get_db(), email)
+    return redirect(url_for('index'))
+
+
+@app.route('/<pokemon_id>')
+def pokemon(pokemon_id):
+    try:
+        _, pokemon_name, image_url, description = helper.fetch_pokemon(get_db(), pokemon_id)
+        return render_template('pokemon.html', description=description, sprites=[image_url], name=pokemon_name,
+                               pokemon_id=pokemon_id)
+    except Exception as e:
+        # TODO: handle exception properly
+        return redirect(url_for('index'))
+
+
 def get_db():
     if 'db' not in g:
         g.db = helper.ConnectionWrapper(app.config["DATABASE"])
