@@ -1,8 +1,5 @@
 {% extends "base.html" %}
-{% block styles %}
-    {{ super() }}
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/style.css') }}">
-{% endblock %}
+
 {% block content %}
     <div class="text-center margin-mobile my-4 mx-auto">
         <h1>Pokedex</h1>
@@ -15,12 +12,30 @@
             </div>
         {% endfor %}
     </div>
-    <form action="{{ url_for('subscribe') }}" method="post">
-      <div class="col-6 col-md-4 col-lg-3 p-2">
-        <label for="input_email" class="form-label">Subscribe to our Pokemon newsletter</label>
-        <input type="email" class="form-control" id="input_email" name = "email" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <footer class="bg-dark text-center text-white">
+        <div class="container p-4">
+            <section class="">
+                <form action="{{ url_for('subscribe') }}" method="post">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-auto">
+                            <p class="pt-2">
+                                <strong>Subscribe to our Pokemon newsletter</strong>
+                            </p>
+                        </div>
+                        <div class="col-md-5 col-12">
+                            <div class="form-outline form-white mb-4">
+                                <input type="email" class="form-control" id="input_email" name = "email" aria-describedby="emailHelp">
+                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-outline-light mb-4">
+                                Subscribe
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </footer>
 {% endblock %}
