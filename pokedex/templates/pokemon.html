@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block styles %}
+    {{ super() }}
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+{% block content %}
+    <div class="full-page d-flex flex-wrap justify-content-center align-items-center">
+        <div class="container d-flex flex-column flex-wrap justify-content-start align-items-center text-center py-5 m-auto margin-mobile">
+            <h1>{{ name }} # {% autoescape false %} {{ pokemon_id }} {% endautoescape %}</h1>
+            <div class="flex-row container d-flex flex-wrap justify-content-center align-items-center text-center mt-2">
+                <img src="{{ sprites[0] }}" alt="">
+            </div>
+            <p>{{ description }}</p>
+        </div>
+    </div>
+{% endblock %}
