@@ -26,6 +26,7 @@ Useful link: https://docs.sonarcloud.io/
 - Go to `Pull requests->New pull request` and open a pull request from the `add-feature` branch to the `main` branch of your fork. Be careful that, by default, the PR targets the upstream repository.
 - The GitHub Action should run and succeed.
 
+xx
 
 ## First analysis on SonarCloud
 
