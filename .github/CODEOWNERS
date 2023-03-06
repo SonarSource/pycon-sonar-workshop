@@ -2,4 +2,4 @@
 * @agigleux @andrea-guarino-sonarsource @guillaume-dequenne-sonarsource
 
 # The whole team will just be notified if the repository ownership is requested for change.
-.github/CODEOWNERS @sonarsource/languages-team-phpy
+.github/CODEOWNERS @sonarsource/languages-team-python
