@@ -31,7 +31,7 @@ def fetch_all_pokemons(wrapper: ConnectionWrapper):
 
 
 def register_subscriber(wrapper: ConnectionWrapper, email):
-    pattern = re.compile(r"(\w|[a-zA-Z0-9_])+@\w+\..+")
+    pattern = re.compile(r"(.*)@(.*\..*)")
     if not pattern.match(email):
         ValueError("Invalid email!")
     wrapper.register_subscriber(email)
