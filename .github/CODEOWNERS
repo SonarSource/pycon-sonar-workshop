@@ -2,4 +2,4 @@
 * @agigleux @andreaguarino @guillaume-dequenne-sonarsource
 
 # The whole team will just be notified if the repository ownership is requested for change.
-.github/CODEOWNERS @SonarSource/analysis-python-squad
+.github/CODEOWNERS @SonarSource/quality-data-ml-squad
