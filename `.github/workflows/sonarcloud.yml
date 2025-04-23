@@ -1,0 +1,30 @@
+name: SonarCloud Analysis
+on:
+push:
+branches:
+- master
+pull_request:
+types: [opened, synchronize, reopened]
+jobs:
+build:
+name: SonarCloud
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v3
+- name: Set up Python
+uses: actions/setup-python@v4
+with:
+python-version: 3.9
+- name: Install dependencies
+run: |
+python -m pip install --upgrade pip
+pip install -r requirements.txt || true
+- name: Run SonarCloud scan
+uses: SonarSource/sonarcloud-github-action@v2
+with:
+args: >
+-Dsonar.projectKey=<HalaAbuElSoud_excel>
+-Dsonar.organization=<halaabuelsoud>
+-Dsonar.host.url=https://sonarcloud.io
+env:
+SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
